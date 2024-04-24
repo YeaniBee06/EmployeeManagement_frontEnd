@@ -1,0 +1,103 @@
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Employee Management System</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <button class="btn btn-outline-success" type="submit">Add Employee</button>
+      </div>
+    </div>
+  </nav>
+  <!-- Button trigger modal -->
+
+
+
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">Employee Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Salary</th>
+      <th scope="col">Address</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let employee of empList ">
+      <td>{{employee.id}}</td>
+      <td>{{employee.name}}</td>
+      <td>{{employee.email}}</td>
+      <td>{{employee.salary}}</td>
+      <td>{{employee.address}}</td>
+
+      <td>
+        <button type="button" class="btn btn- outline-primary mg-2" data-bs-target="editEmployee" (click)="editEmployee(employee)">Edit</button>
+        <button type="button" class="btn btn-outline-danger">Delete</button>
+
+      </td>
+
+
+
+    </tr>
+    </tbody>
+  </table>
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  </button>
+      <div class="model-dialog">
+       <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addEmployee">Add new  Employee</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+
+            <!-- Edit Employee modal-->
+            <div class="modal fade" id="editEmployee" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Edit employee details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+
+
+
+                    <form [formGroup]="empDetail">
+                      <div class="mb-3">
+                        <label for="addEmployee" class="form-label">Name</label>
+                        <input type="text" formControlName="name" class="form-control" id="name" aria-describedby="emailHelp">
+                      </div>
+                      <div class="mb-3">
+                        <label for="addEmployee" class="form-label">Email</label>
+                        <input type="email"  formControlName="email" class="form-control" id="email" aria-describedby="emailHelp">
+                      </div>
+                      <div class="mb-3">
+                        <label for="addEmployee" class="form-label">Salary</label>
+                        <input type="text"  formControlName="salary" class="form-control" id="number" aria-describedby="emailHelp">
+                      </div>
+                      <div class="mb-3">
+                        <label for="addEmployee" class="form-label">Address</label>
+                        <input type="text"  formControlName="address" class="form-control" id="name" aria-describedby="emailHelp">
+                      </div>
+                    </form>
+
+          <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+         <button type="button" class="btn btn-success" (click)="addEmployee()">Update</button>
+          </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+
+        </div>
+      </div>
+</div>
+</div>
+        </div>
+       </div>
+      </div>
+</div>
